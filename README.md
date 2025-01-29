@@ -7,7 +7,7 @@ This repository contains a Django-based authentication system with **cookie-base
 ### **1. Clone the Repository**
 ```sh
 git clone https://github.com/kaushiki25/app.git
-cd YOUR_REPO_NAME
+cd app
 ```
 
 ---
@@ -19,6 +19,9 @@ You need to create and activate a virtual environment depending on your OS.
 ```sh
 python -m venv venv
 venv\Scripts\activate
+
+# Do this in case you run into security issues with running scripts locally
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 
 ### **For macOS / Ubuntu (Terminal)**
