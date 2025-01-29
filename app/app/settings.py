@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import ssl
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -138,3 +139,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Backend for OTP Verification
+
+# To send on console
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# To send to email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '<your-email>'  # Replace with your Gmail
+EMAIL_HOST_PASSWORD = '<your-password>'  # Paste the generated App Password
+DEFAULT_FROM_EMAIL = 'noreply@yourdomain.com'
+# Disable SSL verification
+EMAIL_SSL_CONTEXT = ssl._create_unverified_context()

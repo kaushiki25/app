@@ -7,7 +7,7 @@ from django.urls import path, re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from authentication.views import RegisterView, LoginView, UserDetailsView, LogoutView
+from authentication.views import RegisterView, VerifyOTPView, LoginView, UserDetailsView, LogoutView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -25,6 +25,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/register/', RegisterView.as_view(), name='register'),
+    path('api/register/verify/', VerifyOTPView.as_view(), name='register-verify'),
     path('api/login/', LoginView.as_view(), name='login'),
     path('api/me/', UserDetailsView.as_view(), name='user-details'),
     path('api/logout/', LogoutView.as_view(), name='logout'),
